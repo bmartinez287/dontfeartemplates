@@ -1,0 +1,34 @@
+<?php
+
+function dontfeartemplates_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Add content type suggestions.
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+  }
+}
+
+function dontfeartemplates_preprocess_page(&$variables) {
+  if (!empty($variables['node'])) {
+    $node = $variables['node'];
+
+    $hero_content = $node->get('field_landing_hero')->view();
+    if (!empty($hero_content)) {
+      $variables['hero_content'] = $hero_content;
+    }
+
+    $variables['#attached']['library'][] =  'dontfeartemplates/landing-page';
+  }
+}
+
+// Add the article list to the landing page node template.
+function dontfeartemplates_preprocess_node(&$variables) {
+  $node = $variables['node'];
+
+  if($node->getType() == 'landing_page') {
+    $term = $node->get('field_page_term')->getValue();
+    $tid = $term[0]['target_id'];
+    $variables['content']['article_list'] = views_embed_view('landing_page_articles', 'embed_1', $tid);
+    $variables['content']['article_list']['#prefix'] = '<h2>' . t('Awesome Cat Articles') . '</h2>';
+  }
+}

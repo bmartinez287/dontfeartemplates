@@ -1,0 +1,19 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+
+slick:
+  css:
+    theme:
+      dist/slick/slick/slick.css: {}
+  js:
+    dist/slick/slick/slick.min.js: {}
+  dependencies:
+    - core/jquery
+
+landing-page:
+  js:
+    dist/landing_page.js: {}
+  dependencies:
+   - dontfeartemplates/slick
