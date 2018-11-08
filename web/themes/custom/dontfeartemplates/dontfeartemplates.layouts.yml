@@ -1,0 +1,13 @@
+awfultwocol:
+  label: 'Awful Two column'
+  path: templates/layouts/atc
+  template: layout--awful-twocol
+  category: 'Columns: 2'
+  default_region: left
+  icon_map:
+    - [left, right]
+  regions:
+    left:
+      label: Left
+    right:
+      label: Right

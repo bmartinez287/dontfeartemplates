@@ -23,6 +23,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.6.0",
         "drupal/devel": "^1.2",
+        "drupal/layout_disable": "^1.1",
         "drupal/paragraphs": "^1.3",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",

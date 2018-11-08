@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains dft.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function dft_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dft module.
+    case 'help.page.dft':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Do not fear templates') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dft_theme() {
+  return [
+    'dft' => [
+      'render element' => 'children',
+    ],
+  ];
+}

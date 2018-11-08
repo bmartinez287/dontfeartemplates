@@ -47,7 +47,8 @@
   ]
 %}
 {% block paragraph %}
-  <div class="landinghero" style="background-image: url('{{ content.field_image.0 }}');">
+  {{ content.field_image }}
+  <div class="landinghero" style="background-image: url('{{ content._field_layout.content.field_image.0 }}');">
     <div class="landinghero__content">
       <h2 class="landinghero__content__title">{{ content.field_title.0 }}</h2>
       <div class="landinghero__content__description">{{ content.field_content.0 }}</div>

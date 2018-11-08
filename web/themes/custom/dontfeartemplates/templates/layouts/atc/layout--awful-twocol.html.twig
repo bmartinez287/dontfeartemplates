@@ -1,0 +1,20 @@
+{%
+  set classes = [
+  'row',
+]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.left %}
+      <div {{ region_attributes.left.addClass('col-md-6', 'col-xs-12') }}>
+        {{ content.left }}
+      </div>
+    {% endif %}
+
+    {% if content.right %}
+      <div {{ region_attributes.right.addClass('col-md-6', 'col-xs-12') }}>
+        {{ content.right }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
